@@ -8,7 +8,7 @@
   [project & args]
   (if (zero? (count args))
     (do
-      (println "Usage: lein exec <script-path>")
+      (println "Usage: lein exec <script-path> [args]")
       (println "Example: lein exec script/run-server.clj"))
     (let [script (first args)
           argstr (pr-str args)]

@@ -33,6 +33,7 @@ It needs to be written as if would be eval'ed (rather than compiled) - example b
     (foo/bar :some-stuff)
     
     (do
+      (println *command-line-args*)  ; command-line args as a list
       (foo/bar :some-stuff)
       (baz ", "))
 

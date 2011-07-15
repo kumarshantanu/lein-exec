@@ -13,9 +13,10 @@ Or, include as a dev-dependency:
 
     :dev-dependencies [lein-exec "0.1"]
 
-You can execute a script as follows:
+You can execute scripts as follows:
 
-    $ lein exec scripts/foobar.clj    # just mention the script path
+    $ lein exec scripts/foobar.clj              # mention script path
+    $ lein exec scripts/run-server.clj -p 4000  # with arguments
 
 The script would have dependencies and source packages on CLASSPATH.
 It needs to be written as if would be eval'ed (rather than compiled) - example below:

@@ -11,7 +11,7 @@ Either install as a plugin:
 
 Or, include as a dev-dependency:
 
-    :dev-dependencies [lein-exec "0.1"]
+    :dev-dependencies [[lein-exec "0.1"]]
 
 You can execute scripts as follows:
 

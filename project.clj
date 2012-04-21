@@ -1,7 +1,7 @@
-(defproject lein-exec "0.2.0-SNAPSHOT"
+(defproject lein-exec "0.2.0"
   :description "Leiningen plugin to execute Clojure scripts in projects"
   :url "https://github.com/kumarshantanu/lein-exec"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  ;;:dev-dependencies [[org.clojure/clojure "1.2.1"]]
+  ;;:dev-dependencies [[org.clojure/clojure "1.3.0"]]
   :eval-in-leiningen true)

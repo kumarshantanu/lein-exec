@@ -76,8 +76,6 @@ or,
 
     #!/bin/sh lein2 exec
 
-where `lein` is the name of the Lein 2 executable script.
-
 
 ### Lein 1.x users
 

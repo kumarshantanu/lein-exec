@@ -31,6 +31,11 @@ Or, include as a dev-dependency:
 
 ### Lein 2 users
 
+This blog post covers lein-exec with examples:
+
+[http://charsequence.blogspot.in/2012/04/scripting-clojure-with-leiningen-2.html]
+(http://charsequence.blogspot.in/2012/04/scripting-clojure-with-leiningen-2.html)
+
 #### Synopsis
 
     lein2 exec [-p]

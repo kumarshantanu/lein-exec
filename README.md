@@ -1,6 +1,6 @@
 # lein-exec
 
-Leiningen plugin to execute Clojure scripts in a project
+Leiningen plugin to execute Clojure scripts
 
 
 ## Installation

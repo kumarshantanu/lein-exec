@@ -52,7 +52,7 @@ When only option `-p` is specified, it evaluates STDIN in project context.
 #### Examples
 
     cat foo.clj | lein2 exec
-    lein2 exec -e '(println "foo" (+ 20 30)'
+    lein2 exec -e '(println "foo" (+ 20 30))'
     lein2 exec -ep "(use 'foo.bar) (pprint (map baz (range 200)))"
     lein2 exec -p script/run-server.clj -p 8088
     lein2 exec ~/common/delete-logs.clj

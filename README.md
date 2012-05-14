@@ -78,13 +78,21 @@ uses the local repo on subsequent runs.
 To run executable Clojure script files, you need to download the
 [lein-exec](https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec) and
 [lein-exec-p](https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec-p)
-scripts and put them in PATH.
+scripts, make them executable, and put them in PATH. After downloading the
+scripts, you may also need to edit them in order to specify the correct name
+for the Leiningen executable.
+
+    $ wget https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec
+    $ wget https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec-p
+    $ chmod a+x lein-exec lein-exec-p
+    $ mv lein-exec lein-exec-p ~/bin  # assuming ~/bin is in PATH
 
 Executable Clojure script files that need not run *only* in project-scope
 should have the following on the first line (shebang):
 
     #!/usr/bin/env lein-exec
 or,
+
     #!/bin/bash lein-exec
 
 Executable Clojure script files that are supposed to run *only* in project-scope
@@ -92,6 +100,7 @@ should have the following on the first line (shebang):
 
     #!/usr/bin/env lein-exec-p
 or,
+
     #!/bin/bash lein-exec-p
 
 

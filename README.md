@@ -76,8 +76,8 @@ uses the local repo on subsequent runs.
 *This may be applicable to Unix-like systems only.*
 
 To run executable Clojure script files, you need to download the
-[lein-exec](https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec) and
-[lein-exec-p](https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec-p)
+[lein-exec](https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec) and
+[lein-exec-p](https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec-p)
 scripts, make them executable, and put them in PATH. After downloading the
 scripts, you may also need to edit them in order to specify the correct name
 for the Leiningen executable.

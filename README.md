@@ -73,13 +73,26 @@ uses the local repo on subsequent runs.
 
 #### Executable scripts
 
-Executable Clojure script files should have the following on the first line:
+*This may be applicable to Unix-like systems only.*
 
-    #!/usr/bin/env lein2 exec
+To run executable Clojure script files, you need to download the
+[lein-exec](https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec) and
+[lein-exec-p](https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec-p)
+scripts and put them in PATH.
 
+Executable Clojure script files that need not run *only* in project-scope
+should have the following on the first line (shebang):
+
+    #!/usr/bin/env lein-exec
 or,
+    #!/bin/bash lein-exec
 
-    #!/bin/sh lein2 exec
+Executable Clojure script files that are supposed to run *only* in project-scope
+should have the following on the first line (shebang):
+
+    #!/usr/bin/env lein-exec-p
+or,
+    #!/bin/bash lein-exec-p
 
 
 ### Lein 1.x users

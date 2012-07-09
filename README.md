@@ -82,8 +82,8 @@ scripts, make them executable, and put them in PATH. After downloading the
 scripts, you may also need to edit them in order to specify the correct name
 for the Leiningen executable.
 
-    $ wget https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec
-    $ wget https://github.com/kumarshantanu/lein-exec/blob/master/lein-exec-p
+    $ wget https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec
+    $ wget https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec-p
     $ chmod a+x lein-exec lein-exec-p
     $ mv lein-exec lein-exec-p ~/bin  # assuming ~/bin is in PATH
 

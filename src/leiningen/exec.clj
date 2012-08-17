@@ -1,5 +1,6 @@
 (ns leiningen.exec
   (:require [leiningen.core.eval  :as eval]
+            [leiningen.core.main  :as main]
             [cemerick.pomegranate :as pome]))
 
 
@@ -54,7 +55,7 @@ Executable Clojure script files should have the following on the first line:
     ;; else eval without project
     (load-reader *in*))
   (flush)
-  0)
+  (main/exit 0))
 
 
 (defn eval-sexp
@@ -66,7 +67,7 @@ Executable Clojure script files should have the following on the first line:
     ;; else eval without project
     (load-string sexp-str))
   (flush)
-  0)
+  (main/exit 0))
 
 
 (defn eval-script
@@ -83,7 +84,7 @@ Executable Clojure script files should have the following on the first line:
     (binding [*command-line-args* (read-string script-argstr)]
       (load-file script-path)))
   (flush)
-  0)
+  (main/exit 0))
 
 
 (defmacro in

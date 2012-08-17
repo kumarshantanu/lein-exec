@@ -9,11 +9,11 @@ Leiningen plugin to execute Clojure scripts
 
 The recommended way is to install as a global plugin in `~/.lein/profiles.clj`:
 
-    {:user {:plugins [[lein-exec "0.2.0"]]}}
+    {:user {:plugins [[lein-exec "0.2.1"]]}}
 
 You may also install as a project plugin in `project.clj`:
 
-    :plugins [[lein-exec "0.2.0"]]
+    :plugins [[lein-exec "0.2.1"]]
 
 
 ### Lein 1.x users
@@ -141,6 +141,12 @@ It needs to be written as if would be eval'ed (rather than compiled) - example b
 On Twitter: [@kumarshantanu](http://twitter.com/kumarshantanu)
 
 On Leiningen mailing list: [http://groups.google.com/group/leiningen](http://groups.google.com/group/leiningen)
+
+
+## Contributors
+
+* https://github.com/jeroenvandijk (Jeroen van Dijk)
+* https://github.com/geriatric
 
 
 ## License

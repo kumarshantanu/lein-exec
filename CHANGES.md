@@ -1,8 +1,9 @@
 # Changes and TODO
 
-## 0.2.2 / 2013-02-01
+## 0.3.0 / 2013-02-01
 
-* deps accepts :repositories keyword (hikoz)
+* `deps` accepts :repositories keyword (hikoz)
+* Use `lein` executable in scripts
 
 ## 0.2.1 / 2012-08-17
 

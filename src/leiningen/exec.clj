@@ -10,13 +10,14 @@
   Example:
     (use '[leiningen.exec :only (deps)])
     (deps '[[compojure \"1.0.1\"]
-            [org.clojure/java.jdbc \"0.1.0\"]])"
-  [the-deps]
+            [org.clojure/java.jdbc \"0.1.0\"]]
+          :repositories {\"jboss\" \"https://repository.jboss.org/nexus/content/repositories/\"})"
+  [the-deps & {:keys [repositories]}]
   (pome/add-dependencies
-   :coordinates  the-deps
-   :repositories (merge cemerick.pomegranate.aether/maven-central
-                        {"clojars" "http://clojars.org/repo"})))
-
+    :coordinates  the-deps
+    :repositories (merge cemerick.pomegranate.aether/maven-central
+                         {"clojars" "http://clojars.org/repo"}
+                         repositories)))
 
 (defn show-help
   []

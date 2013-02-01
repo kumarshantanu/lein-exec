@@ -1,4 +1,4 @@
-(defproject lein-exec "0.2.1"
+(defproject lein-exec "0.2.2-SNAPSHOT"
   :description "Leiningen plugin to execute Clojure scripts"
   :url "https://github.com/kumarshantanu/lein-exec"
   :license {:name "Eclipse Public License"

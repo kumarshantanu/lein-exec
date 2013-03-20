@@ -138,8 +138,8 @@ or,
 Windows users may not have the shebang header goodness, but they can use the
 provided scripts (URLs below) as a convenience:
 
-[lein-exec.bat](https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec.bat)
-[lein-exec-p.bat](https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec-p.bat)
+* [lein-exec.bat](https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec.bat)
+* [lein-exec-p.bat](https://raw.github.com/kumarshantanu/lein-exec/master/lein-exec-p.bat)
 
 
 ### Lein 1.x users

@@ -1,0 +1,2 @@
+@ECHO OFF
+lein exec %*

@@ -1,5 +1,6 @@
 (ns leiningen.exec
   (:require [leiningen.core.eval  :as eval]
+            [leiningen.help       :as help]
             [leiningen.core.main  :as main]
             [cemerick.pomegranate :as pome]))
 
@@ -19,32 +20,11 @@
                          {"clojars" "http://clojars.org/repo"}
                          repositories)))
 
+
 (defn show-help
+  "Print the entire docstring for the \"exec\" task to STDOUT."
   []
-  (println "
-Usage:
-    lein exec [-p]
-    lein exec -e[p] <string-s-expr>
-    lein exec [-p] <script-path> [args]
-
-When invoked without args it reads S-expressions from STDIN and evaluates them.
-When only option `-p` is specified, it evaluates STDIN in project context.
-
--e  evaluates the following string as an S-expression
--ep evaluates the following string as an S-expression in project (w/classpath)
--p  indicates the script should be evaluated in project (with classpath)
-
-Examples:
-    cat foo.clj | lein exec
-    lein exec -e '(println \"foo\" (+ 20 30)'
-    lein exec -ep \"(use 'foo.bar) (pprint (map baz (range 200)))\"
-    lein exec -p script/run-server.clj -p 8088
-    lein exec ~/common/delete-logs.clj
-
-Optional args after script-path are bound to clojure.core/*command-line-args*
-Executable Clojure script files should have the following on the first line:
-#!/usr/bin/env lein exec
-"))
+  (println (help/help-for "exec")))
 
 
 (defn eval-stdin
@@ -98,7 +78,30 @@ Executable Clojure script files should have the following on the first line:
 
 
 (defn ^:no-project-needed exec
-  "Execute Clojure S-expresions from command-line or scripts"
+  "Execute Clojure S-expresions from command-line or scripts.
+
+Usage:
+    lein exec [-p]
+    lein exec -e[p] <string-s-expr>
+    lein exec [-p] <script-path> [args]
+
+When invoked without args it reads S-expressions from STDIN and evaluates them.
+When only option `-p` is specified, it evaluates STDIN in project context.
+
+-e  evaluates the following string as an S-expression
+-ep evaluates the following string as an S-expression in project (w/classpath)
+-p  indicates the script should be evaluated in project (with classpath)
+
+Examples:
+    cat foo.clj | lein exec
+    lein exec -e '(println \"foo\" (+ 20 30)'
+    lein exec -ep \"(use 'foo.bar) (pprint (map baz (range 200)))\"
+    lein exec -p script/run-server.clj -p 8088
+    lein exec ~/common/delete-logs.clj
+
+Optional args after script-path are bound to clojure.core/*command-line-args*
+Executable Clojure script files should have the following on the first line:
+#!/usr/bin/env lein exec"
   [project & args]
   (let [option  (when (= \- (first (first args))) (first args))
         opt?    (fn [choice & more] (some #(= option %) (cons choice more)))

@@ -94,7 +94,7 @@ When only option `-p` is specified, it evaluates STDIN in project context.
 
 Examples:
     cat foo.clj | lein exec
-    lein exec -e '(println \"foo\" (+ 20 30)'
+    lein exec -e '(println \"foo\" (+ 20 30))'
     lein exec -ep \"(use 'foo.bar) (pprint (map baz (range 200)))\"
     lein exec -p script/run-server.clj -p 8088
     lein exec ~/common/delete-logs.clj

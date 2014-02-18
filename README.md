@@ -10,13 +10,13 @@ Leiningen plugin to execute Clojure scripts
 The recommended way is to install as a global plugin in `~/.lein/profiles.clj`:
 
 ```clojure
-{:user {:plugins [[lein-exec "0.3.1"]]}}
+{:user {:plugins [[lein-exec "0.3.2"]]}}
 ```
 
 You may also install as a project plugin in `project.clj`:
 
 ```clojure
-:plugins [[lein-exec "0.3.1"]]
+:plugins [[lein-exec "0.3.2"]]
 ```
 
 
@@ -162,15 +162,15 @@ It needs to be written as if would be eval'ed (rather than compiled) - example b
 (require '[clojure.string :as str]
          '[clojure.pprint :as ppr]
          '[com.example.foo :as foo])
-    
-    
+
+
 (defn baz
   [y]
   (let [x (str/join y (foo/quux :bla-bla))]
     (ppr/pprint [x foo/nemesis])))
-    
+
 (foo/bar :some-stuff)
-    
+
 (do
   (println *command-line-args*)  ; command-line args as a list
   (foo/bar :some-stuff)
@@ -192,10 +192,11 @@ On Leiningen mailing list: [http://groups.google.com/group/leiningen](http://gro
 * https://github.com/hikoz
 * https://github.com/mcandre (Andrew Pennebaker)
 * https://github.com/mneilsen (Mike Neilsen <mneilsen@acm.org>)
+* https://github.com/kbaribeau (Kevin Baribeau <kevin.baribeau+github@gmail.com>)
 
 
 ## License
 
-Copyright (C) 2011-2013 Shantanu Kumar and contributors
+Copyright (C) 2011-2014 Shantanu Kumar and contributors
 
 Distributed under the Eclipse Public License, the same as Clojure.

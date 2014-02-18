@@ -1,5 +1,9 @@
 # Changes and TODO
 
+## 0.3.2 / 2014-02-18
+
+* Fix typo in help text (kbaribeau)
+
 ## 0.3.1 / 2013-08-12
 
 * Integrate command-line help switch (mneilsen)

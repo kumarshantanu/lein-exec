@@ -10,13 +10,13 @@ Leiningen plugin to execute Clojure scripts
 The recommended way is to install as a global plugin in `~/.lein/profiles.clj`:
 
 ```clojure
-{:user {:plugins [[lein-exec "0.3.2"]]}}
+{:user {:plugins [[lein-exec "0.3.3"]]}}
 ```
 
 You may also install as a project plugin in `project.clj`:
 
 ```clojure
-:plugins [[lein-exec "0.3.2"]]
+:plugins [[lein-exec "0.3.3"]]
 ```
 
 

@@ -1,5 +1,11 @@
 # Changes and TODO
 
+## 0.3.3 / 2014-04-01
+
+* Fix spurious error message due to premature termination:
+[lein-exec + with-profile results in error](https://github.com/kumarshantanu/lein-exec/issues/13)
+(Shantanu Kumar)
+
 ## 0.3.2 / 2014-02-18
 
 * Fix typo in help text (kbaribeau)

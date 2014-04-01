@@ -35,8 +35,7 @@
     (eval/eval-in-project project `(load-reader *in*))
     ;; else eval without project
     (load-reader *in*))
-  (flush)
-  (main/exit 0))
+  (flush))
 
 
 (defn eval-sexp
@@ -47,8 +46,7 @@
     (eval/eval-in-project project `(load-string ~sexp-str))
     ;; else eval without project
     (load-string sexp-str))
-  (flush)
-  (main/exit 0))
+  (flush))
 
 
 (defn eval-script
@@ -64,17 +62,14 @@
     ;; else external, eval without project
     (binding [*command-line-args* (read-string script-argstr)]
       (load-file script-path)))
-  (flush)
-  (main/exit 0))
+  (flush))
 
 
 (defmacro in
   "Execute body of code in context of project"
   [project & body]
   `(if ~project (do ~@body)
-       (do (binding [*err* *out*]
-             (println "ERROR: Not in a project"))
-           1)))
+       (main/abort "ERROR: Not in a project")))
 
 
 (defn ^:no-project-needed exec

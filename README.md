@@ -178,7 +178,7 @@ It needs to be written as if would be eval'ed (rather than compiled) - example b
 ```
 
 
-## Execute a namespace having `-main` using lein-exec
+## Execute an ns having `-main` using lein-exec
 
 Append the following to the namespace having `-main` fn:
 

@@ -10,13 +10,13 @@ Leiningen plugin to execute Clojure scripts
 The recommended way is to install as a global plugin in `~/.lein/profiles.clj`:
 
 ```clojure
-{:user {:plugins [[lein-exec "0.3.3"]]}}
+{:user {:plugins [[lein-exec "0.3.4"]]}}
 ```
 
 You may also install as a project plugin in `project.clj`:
 
 ```clojure
-:plugins [[lein-exec "0.3.3"]]
+:plugins [[lein-exec "0.3.4"]]
 ```
 
 
@@ -176,6 +176,20 @@ It needs to be written as if would be eval'ed (rather than compiled) - example b
   (foo/bar :some-stuff)
   (baz ", "))
 ```
+
+
+## Executing a namespace having `-main` fn using lein-exec
+
+Append the following to the namespace having `-main` fn:
+
+```clojure
+(try (require 'leiningen.exec)
+     (when (ns-resolve 'leiningen.exec '*running?*)
+       (apply -main (rest *command-line-args*)))
+     (catch java.io.FileNotFoundException e))
+```
+
+_Note:_ This works only on lein-exec 0.3.4 and later.
 
 
 ## Getting in touch

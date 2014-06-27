@@ -1,5 +1,10 @@
 # Changes and TODO
 
+## 0.3.4 / 2014-06-28
+
+* Fix #8 - support for automatically running `-main` if present
+  (Shantanu Kumar, with help from @asimjalis)
+
 ## 0.3.3 / 2014-04-01
 
 * Fix spurious error message due to premature termination:

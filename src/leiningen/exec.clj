@@ -72,6 +72,9 @@
        (main/abort "ERROR: Not in a project")))
 
 
+(def ^:dynamic *running?* false)
+
+
 (defn ^:no-project-needed exec
   "Execute Clojure S-expresions from command-line or scripts.
 
@@ -98,19 +101,21 @@ Optional args after script-path are bound to clojure.core/*command-line-args*
 Executable Clojure script files should have the following on the first line:
 #!/usr/bin/env lein exec"
   [project & args]
-  (let [option  (when (= \- (first (first args))) (first args))
-        opt?    (fn [choice & more] (some #(= option %) (cons choice more)))
-        params  (if option (rest args) args)]
-    (cond ;; eval STDIN
-          (empty? params) (cond (nil? option) (eval-stdin nil)
-                                (opt? "-p")   (in project (eval-stdin project))
-                                :otherwise    (show-help))
-          ;; eval (first param) from command line
-          (opt? "-e")   (eval-sexp nil (first params))
-          (opt? "-ep")  (in project (eval-sexp project (first params)))
-          (opt? "-pe")  (in project (eval-sexp project (first params)))
-          ;; eval script
-          (opt? "-p")   (in project (eval-script project (first params)
-                                                 (pr-str params)))
-          (not option)  (eval-script nil (first params) (pr-str params))
-          :otherwise    (show-help))))
+  (binding [*running?* true]
+    (let [option  (let [arg1 (first args)] (when (= \- (first arg1)) arg1))
+          opt?    (fn [choice & more] (some #(= option %) (cons choice more)))
+          params  (if option (rest args) args)]
+      (cond
+        ;; eval STDIN
+        (empty? params) (cond (nil? option) (eval-stdin nil)
+                          (opt? "-p")   (in project (eval-stdin project))
+                          :otherwise    (show-help))
+        ;; eval (first param) from command line
+        (opt? "-e")   (eval-sexp nil (first params))
+        (opt? "-ep")  (in project (eval-sexp project (first params)))
+        (opt? "-pe")  (in project (eval-sexp project (first params)))
+        ;; eval script
+        (opt? "-p")   (in project (eval-script project (first params)
+                                    (pr-str params)))
+        (not option)  (eval-script nil (first params) (pr-str params))
+        :otherwise    (show-help)))))

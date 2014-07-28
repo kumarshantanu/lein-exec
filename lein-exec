@@ -1,3 +1,3 @@
 #!/bin/bash
 
-lein exec "$@"
+lein exec `pwd`/"$@"

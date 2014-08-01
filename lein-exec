@@ -1,3 +1,11 @@
 #!/bin/bash
 
-lein exec `pwd`/"$@"
+if [[ $1 =~ ^[~\/] ]]
+then
+  # its already an absolute path
+  lein exec $@
+else
+  # This is a relative path, so make it absolute,
+  # using the current directory as the base.
+  lein exec `pwd`/"$@"
+fi

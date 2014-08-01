@@ -3,7 +3,7 @@
 if [[ $1 =~ ^[~\/] ]]
 then
   # its already an absolute path
-  lein exec -p $@
+  lein exec -p "$@"
 else
   # This is a relative path, so make it absolute,
   # using the current directory as the base.

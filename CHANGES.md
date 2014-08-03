@@ -1,5 +1,9 @@
 # Changes and TODO
 
+## No release / 2014-08-03
+
+* Fix incorrect in-project resolution of script path (Velrok)
+
 ## 0.3.4 / 2014-06-28
 
 * Fix [#8](https://github.com/kumarshantanu/lein-exec/issues/8) - support for

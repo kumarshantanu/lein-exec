@@ -184,7 +184,7 @@ Append the following to the namespace having `-main` fn:
 
 ```clojure
 (try (require 'leiningen.exec)
-     (when (ns-resolve 'leiningen.exec '*running?*)
+     (when @(ns-resolve 'leiningen.exec '*running?*)
        (apply -main (rest *command-line-args*)))
      (catch java.io.FileNotFoundException e))
 ```

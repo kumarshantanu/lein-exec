@@ -76,7 +76,7 @@
 
 
 (defn ^:no-project-needed exec
-  "Execute Clojure S-expresions from command-line or scripts.
+  "Execute Clojure S-expressions from command-line or scripts.
 
 Usage:
     lein exec [-p]

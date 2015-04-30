@@ -2,6 +2,7 @@
   (:require [leiningen.core.eval  :as eval]
             [leiningen.help       :as help]
             [leiningen.core.main  :as main]
+            [leiningen.core.project :as project]
             [cemerick.pomegranate :as pome]))
 
 
@@ -14,11 +15,14 @@
             [org.clojure/java.jdbc \"0.1.0\"]]
           :repositories {\"jboss\" \"https://repository.jboss.org/nexus/content/repositories/\"})"
   [the-deps & {:keys [repositories]}]
-  (pome/add-dependencies
-    :coordinates  the-deps
-    :repositories (merge cemerick.pomegranate.aether/maven-central
-                         {"clojars" "http://clojars.org/repo"}
-                         repositories)))
+  (let [{:keys [local-repo mirrors]} (:user (project/init-project (project/read-profiles nil)))]
+    (pome/add-dependencies
+      :coordinates  the-deps
+      :repositories (merge cemerick.pomegranate.aether/maven-central
+                           {"clojars" "http://clojars.org/repo"}
+                           repositories)
+      :local-repo local-repo
+      :mirrors mirrors)))
 
 
 (defn show-help

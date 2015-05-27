@@ -1,5 +1,10 @@
 # Changes and TODO
 
+## 0.3.5 / 2015-05-27
+
+* Fix [#21](https://github.com/kumarshantanu/lein-exec/issues/21) - support for 
+  settings from user profiles.clj ([sashton](Steve Ashton))
+
 ## No release / 2014-08-03
 
 * Fix incorrect in-project resolution of script path (Velrok)

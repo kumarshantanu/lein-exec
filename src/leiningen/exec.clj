@@ -3,7 +3,8 @@
             [leiningen.help       :as help]
             [leiningen.core.main  :as main]
             [leiningen.core.project :as project]
-            [cemerick.pomegranate :as pome]))
+            [cemerick.pomegranate :as pome])
+  (:import [java.io File FileNotFoundException]))
 
 
 (defn deps
@@ -56,7 +57,7 @@
 (defn eval-script
   "Evaluate script. If project is not nil, evaluate the script in context of
   project (classpath)."
-  [project script-path script-argstr]
+  [project ^String script-path script-argstr]
   (if project
     ;; eval-in-project
     (eval/eval-in-project
@@ -65,7 +66,22 @@
         (load-file ~script-path)))
     ;; else external, eval without project
     (binding [*command-line-args* (read-string script-argstr)]
-      (load-file script-path)))
+      (try
+        (load-file script-path)
+        (catch FileNotFoundException e
+          ;; When a script in a project is executed as standalone, Leiningen
+          ;; still changes the current directory to the project directory,
+          ;; which may cause the script not to be located. We just print the
+          ;; current directory (for clarity) in such a possible scenario.
+          (let [^File f (File. script-path)]
+            (when (and (not (.exists f))
+                    (not (.isFile f)))
+              (binding [*out* *err*]
+                (println "[lein-exec] Current working directory:"
+                  (pr-str (.getParent (.getAbsoluteFile (File. ".")))))
+                (println "[lein-exec] Executable script name:" (pr-str script-path))
+                (flush))))
+          (throw e)))))
   (flush))
 
 

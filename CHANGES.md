@@ -4,7 +4,7 @@
 
 * Fix [#24](https://github.com/kumarshantanu/lein-exec/issues/21) - scripts in
   current directory (where CWD contains space chars) are not located.
-* Print iagnostic path info on `java.io.FileNotFoundException` (possibly when
+* Print diagnostic path info on `java.io.FileNotFoundException` (possibly when
   script not found).
 
 ## 0.3.5 / 2015-05-27

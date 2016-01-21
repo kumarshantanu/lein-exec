@@ -7,5 +7,6 @@ then
 else
   # This is a relative path, so make it absolute,
   # using the current directory as the base.
-  lein exec `pwd`/"$@"
+  lein exec "`pwd`/$@"
 fi
+

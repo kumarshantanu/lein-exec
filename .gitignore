@@ -1,5 +1,6 @@
 /target
-pom.xml
+/pom.xml
 /TAGS
 /.*
+/pom.xml.asc
 

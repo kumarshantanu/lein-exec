@@ -20,7 +20,7 @@
     (pome/add-dependencies
       :coordinates  the-deps
       :repositories (merge cemerick.pomegranate.aether/maven-central
-                           {"clojars" "http://clojars.org/repo"}
+                           {"clojars" "https://clojars.org/repo"}
                            repositories)
       :local-repo local-repo
       :mirrors mirrors)))

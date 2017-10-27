@@ -1,5 +1,10 @@
 # Changes and TODO
 
+## 0.3.7 / 2017-Oct-27
+
+* Fix [#26](https://github.com/kumarshantanu/lein-exec/issues/26) - use HTTPS
+  for Clojars repo.
+
 ## 0.3.6 / 2016-Jan-21
 
 * Fix [#24](https://github.com/kumarshantanu/lein-exec/issues/21) - scripts in

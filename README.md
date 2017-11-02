@@ -41,8 +41,7 @@ Or, include as a dev-dependency:
 
 This blog post covers lein-exec with examples:
 
-[http://charsequence.blogspot.in/2012/04/scripting-clojure-with-leiningen-2.html]
-(http://charsequence.blogspot.in/2012/04/scripting-clojure-with-leiningen-2.html)
+[Scripting Clojure with Leiningen 2](http://charsequence.blogspot.in/2012/04/scripting-clojure-with-leiningen-2.html)
 
 #### Synopsis
 
